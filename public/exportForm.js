@@ -1,0 +1,11 @@
+"use strict";/**
+ * Generates a CSV-file containing the values present in the input elements at the time
+ * of the function being called, then downloads the file as a CSV-text blob with UTF-8-BOM encoding.
+ */function generateAndDownloadCSVFile(){var a="";// Write column headers.
+a+="L\xE4rare;Veckodag;Period;\xC4mne;Starttid;l\xE4ngd i min";for(var b=document.getElementById("name").value,c=document.getElementById("signature").value,d=["M\xE5ndag","Tisdag","Onsdag","Torsdag","Fredag"],e=["HT","VT"],f=0;f<e.length;f++){for(var g=e[f],h="",j=0;j<days.length;j++){var k=days[j],l=document.getElementById("".concat(g,"-").concat(k,"-day-start")),m=document.getElementById("".concat(g,"-").concat(k,"-day-end")),n=document.getElementById("".concat(g,"-").concat(k,"-lunch-start")),o=document.getElementById("".concat(g,"-").concat(k,"-lunch-end")),p=calculateMinuteDifference(l,m),q=calculateMinuteDifference(n,o),r=d[days.indexOf(k)];// Get input elements.
+l.value&&(a+="\n".concat(c,";").concat(r,";").concat(g,";Arbetstid;").concat(l.value,";").concat(p||0)),n.value&&(h+="\n".concat(c,";").concat(r,";").concat(g,";Rast/lunch;").concat(n.value,";").concat(q||0))}// Before moving on to next term, append all the lunches for this term to the csv file.
+a+=h}var s="".concat(b,"_(").concat(c,").csv"),u="\uFEFF"+a;// Download blob.
+// Display alert notifying user of what to do next.
+BlobDownload(s,[u],"text/csv"),showDownloadMessage()}function BlobDownload(b,c,d){var e=new Blob(c,{type:d});// for IE
+if(window.navigator&&window.navigator.msSaveOrOpenBlob)window.navigator.msSaveOrOpenBlob(e,b);else{// for Non-IE (chrome, firefox etc.)
+var f=document.createElement("a");document.body.appendChild(f),f.style="display: none";var a=URL.createObjectURL(e);f.href=a,f.download=b,f.click(),f.remove()}}function showDownloadMessage(){var a=document.getElementById("download-scrim");a.style.visibility="visible"}function hideDownloadMessage(){var a=document.getElementById("download-scrim");a.style.visibility="hidden"}
