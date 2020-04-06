@@ -1,0 +1,252 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: #fafafa;
+  min-height: 100vh;
+}
+
+div.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+div.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+div.flex-grow {
+  flex-grow: 1;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 500;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: fit-content;
+  background-color: #ffffff;
+  border: 2px solid rgb(187, 187, 187);
+  border-radius: 20px;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 10px 28px 0px rgba(0, 0, 0, 0.33);
+  -moz-box-shadow: 0px 10px 28px 0px rgba(0, 0, 0, 0.33);
+  box-shadow: 0px 10px 28px 0px rgba(0, 0, 0, 0.33);
+}
+
+/* Hide all steps by default. */
+fieldset {
+  display: none;
+  flex-direction: column;
+  border: none;
+  padding: 2rem;
+}
+
+legend {
+  padding-top: 1rem;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+p {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+blockquote {
+  background: rgb(255, 226, 131);
+  margin-right: calc(-2rem - 2px);
+  padding: 1rem;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+li {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+ul.week {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+}
+
+ul.week li {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 0 2rem;
+}
+
+/* Apply only to first child in week-list. */
+ul.week li:first-child {
+  padding-left: 0;
+}
+
+/* Apply only to last child in week-list. */
+ul.week li:last-child {
+  padding-right: 0;
+}
+
+/* Apply to all but last child in week-list. */
+ul.week li:not(:last-child) {
+  border-right: 2px solid black;
+}
+
+label {
+  display: block;
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+input {
+  display: block;
+  height: 2rem;
+  min-width: 0;
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+  border-radius: 4px;
+  padding: 0 4px;
+}
+
+input:focus:invalid {
+  border: 2px solid red;
+}
+
+input:invalid.contains-value {
+  border: 2px solid red;
+}
+
+input:valid.contains-value {
+  border: 2px solid green;
+}
+
+input.time {
+  width: 8rem;
+  margin-bottom: 1rem;
+}
+
+output {
+  font-size: 1.3rem;
+  margin-top: 10px;
+}
+
+div.divider {
+  height: 2rem;
+  width: 1rem;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+}
+
+div.week-totals {
+  padding: 1rem;
+  padding-right: 3rem;
+  margin-right: calc(-2rem - 2px);
+  background-color: rgb(42, 221, 146);
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+/* Mark the active step: */
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #4CAF50;
+}
+
+div#step-container {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.5;
+}
+
+nav button {
+  flex-grow: 1;
+  height: 5rem;
+  border: none;
+  font-size: 2rem;
+}
+
+button.copy {
+  height: 3rem;
+  font-size: 1.5rem;
+  border-radius: 8px;
+}
+
+footer p {
+  font-size: 1rem;
+  text-align: center;
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+}
+
+div#download-scrim {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.712);
+  width: 100%;
+  height: 100%;
+}
+
+div#download-message {
+  position: absolute;
+  left: 41%;
+  bottom: 50px;
+}
+
+div#download-textbox {
+  background: #fafafa;
+  padding: 2rem;
+  border-radius: 1rem;
+  height: auto;
+  font-size: 1.5rem;
+}
+
+img#download-arrow {
+  width: 6rem;
+  height: 6rem;
+  float: right;
+}

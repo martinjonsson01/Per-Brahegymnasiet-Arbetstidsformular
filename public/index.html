@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Per Brahegymnasiet - Arbetstidsformulär för lärare</title>
+
+	<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+
+<body>
+	<h1>Arbetstidsformulär för lärare</h1>
+
+	<form id="main-form" onsubmit="return submitForm()">
+		<!-- Introductory text -->
+		<fieldset class="tab" disabled="true">
+			<p>Här skriver du in dina planerade
+				arbetstider för höstterminen och vårterminen!</p>
+		</fieldset>
+
+		<!-- Teacher info  -->
+		<fieldset class="tab" disabled=true>
+			<legend>Lärare</legend>
+
+			<label for="name">Namn</label>
+			<input onkeypress="return noEnter()" required type="text" name="name" id="name" placeholder="Förnamn Efternamn"
+				autocomplete="name">
+
+			<label for="signature">Signatur</label>
+			<input onkeypress="return noEnter()" required minlength=5 maxlength=5 type="text" name="signature" id="signature"
+				placeholder="t.ex. nefpe" autocomplete="username">
+		</fieldset>
+
+		<!-- Autumn term  -->
+		<fieldset class="tab" disabled=true>
+			<legend>Höstterminen (HT)</legend>
+			<p>Vilka är dina planerade arbetstider för höstterminen?</p>
+			<blockquote>
+				<strong>OBS!</strong><br>
+				<ul>
+					<li>Max 5 timmar arbete i sträck utan rast/lunch på minst 30 min.</li>
+					<li>Om rektor inte gett annan instruktion kan arbetstiden börja tidigast 07:30 och sluta senast 17:00.</li>
+					<li>Lunch måste läggas in med minst 30 minuter. Den tiden räknas ej som arbetstid.</li>
+				</ul>
+			</blockquote>
+
+			<ul class="week">
+				<li>
+					<h2>Måndag</h2>
+
+					<label for="HT-mon-day-start">Starttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="HT-mon-day-start" id="HT-mon-day-start"
+						placeholder="t.ex. 07:30" autocomplete="off" pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])"
+						oninput="onTimeInput('HT-mon')">
+
+					<label for="HT-mon-day-end">Sluttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="HT-mon-day-end" id="HT-mon-day-end"
+						placeholder="t.ex. 16:00" autocomplete="off" pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])"
+						oninput="onTimeInput('HT-mon')">
+
+					<div class="divider"></div>
+
+					<label for="HT-mon-lunch-start">Lunch-starttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="HT-mon-lunch-start"
+						id="HT-mon-lunch-start" placeholder="t.ex. 11:30" autocomplete="off"
+						pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])" oninput="onTimeInput('HT-mon')">
+
+					<label for="HT-mon-lunch-end">Lunch-sluttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="HT-mon-lunch-end" id="HT-mon-lunch-end"
+						placeholder="t.ex. 12:30" autocomplete="off" pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])"
+						oninput="onTimeInput('HT-mon')">
+
+					<div class="divider"></div>
+
+					<label for="HT-mon-minutes">Arbetstid</label>
+					<output name="HT-mon-minutes" id="HT-mon-minutes">-</output>
+				</li>
+				<li>
+					<h2>Tisdag</h2>
+
+					<label for="HT-tue-day-start">Starttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="HT-tue-day-start" id="HT-tue-day-start"
+						placeholder="t.ex. 07:30" autocomplete="off" pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])"
+						oninput="onTimeInput('HT-tue')">
+
+					<label for="HT-tue-day-end">Sluttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="HT-tue-day-end" id="HT-tue-day-end"
+						placeholder="t.ex. 16:00" autocomplete="off" pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])"
+						oninput="onTimeInput('HT-tue')">
+
+					<div class="divider"></div>
+
+					<label for="HT-tue-lunch-start">Lunch-starttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="HT-tue-lunch-start"
+						id="HT-tue-lunch-start" placeholder="t.ex. 11:30" autocomplete="off"
+						pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])" oninput="onTimeInput('HT-tue')">
+
+					<label for="HT-tue-lunch-end">Lunch-sluttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="HT-tue-lunch-end" id="HT-tue-lunch-end"
+						placeholder="t.ex. 12:30" autocomplete="off" pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])"
+						oninput="onTimeInput('HT-tue')">
+
+					<div class="divider"></div>
+
+					<label for="HT-tue-minutes">Arbetstid</label>
+					<output name="HT-tue-minutes" id="HT-tue-minutes">-</output>
+				</li>
+				<li>
+					<h2>Onsdag</h2>
+
+					<label for="HT-wed-day-start">Starttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="HT-wed-day-start" id="HT-wed-day-start"
+						placeholder="t.ex. 07:30" autocomplete="off" pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])"
+						oninput="onTimeInput('HT-wed')">
+
+					<label for="HT-wed-day-end">Sluttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="HT-wed-day-end" id="HT-wed-day-end"
+						placeholder="t.ex. 16:00" autocomplete="off" pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])"
+						oninput="onTimeInput('HT-wed')">
+
+					<div class="divider"></div>
+
+					<label for="HT-wed-lunch-start">Lunch-starttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="HT-wed-lunch-start"
+						id="HT-wed-lunch-start" placeholder="t.ex. 11:30" autocomplete="off"
+						pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])" oninput="onTimeInput('HT-wed')">
+
+					<label for="HT-wed-lunch-end">Lunch-sluttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="HT-wed-lunch-end" id="HT-wed-lunch-end"
+						placeholder="t.ex. 12:30" autocomplete="off" pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])"
+						oninput="onTimeInput('HT-wed')">
+
+					<div class="divider"></div>
+
+					<label for="HT-wed-minutes">Arbetstid</label>
+					<output name="HT-wed-minutes" id="HT-wed-minutes">-</output>
+				</li>
+				<li>
+					<h2>Torsdag</h2>
+
+					<label for="HT-thu-day-start">Starttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="HT-thu-day-start" id="HT-thu-day-start"
+						placeholder="t.ex. 07:30" autocomplete="off" pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])"
+						oninput="onTimeInput('HT-thu')">
+
+					<label for="HT-thu-day-end">Sluttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="HT-thu-day-end" id="HT-thu-day-end"
+						placeholder="t.ex. 16:00" autocomplete="off" pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])"
+						oninput="onTimeInput('HT-thu')">
+
+					<div class="divider"></div>
+
+					<label for="HT-thu-lunch-start">Lunch-starttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="HT-thu-lunch-start"
+						id="HT-thu-lunch-start" placeholder="t.ex. 11:30" autocomplete="off"
+						pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])" oninput="onTimeInput('HT-thu')">
+
+					<label for="HT-thu-lunch-end">Lunch-sluttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="HT-thu-lunch-end" id="HT-thu-lunch-end"
+						placeholder="t.ex. 12:30" autocomplete="off" pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])"
+						oninput="onTimeInput('HT-thu')">
+
+					<div class="divider"></div>
+
+					<label for="HT-thu-minutes">Arbetstid</label>
+					<output name="HT-thu-minutes" id="HT-thu-minutes">-</output>
+				</li>
+				<li>
+					<h2>Fredag</h2>
+
+					<label for="HT-fri-day-start">Starttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="HT-fri-day-start" id="HT-fri-day-start"
+						placeholder="t.ex. 07:30" autocomplete="off" pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])"
+						oninput="onTimeInput('HT-fri')">
+
+					<label for="HT-fri-day-end">Sluttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="HT-fri-day-end" id="HT-fri-day-end"
+						placeholder="t.ex. 16:00" autocomplete="off" pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])"
+						oninput="onTimeInput('HT-fri')">
+
+					<div class="divider"></div>
+
+					<label for="HT-fri-lunch-start">Lunch-starttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="HT-fri-lunch-start"
+						id="HT-fri-lunch-start" placeholder="t.ex. 11:30" autocomplete="off"
+						pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])" oninput="onTimeInput('HT-fri')">
+
+					<label for="HT-fri-lunch-end">Lunch-sluttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="HT-fri-lunch-end" id="HT-fri-lunch-end"
+						placeholder="t.ex. 12:30" autocomplete="off" pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])"
+						oninput="onTimeInput('HT-fri')">
+
+					<div class="divider"></div>
+
+					<label for="HT-fri-minutes">Arbetstid</label>
+					<output name="HT-fri-minutes" id="HT-fri-minutes">-</output>
+				</li>
+			</ul>
+
+			<div class="flex-row">
+				<button class="copy" type="button" onclick="copyFromMondayToAll('HT')">Kopiera tider från Måndag</button>
+
+				<div class="flex-grow"></div>
+
+				<div class="flex-column week-totals">
+					<label for="HT-weektime">Totalt</label>
+					<output name="HT-weektime" id="HT-weektime">-</output>
+				</div>
+			</div>
+		</fieldset>
+
+		<!-- Spring term  -->
+		<fieldset class="tab" disabled=true>
+			<legend>Vårterminen (VT)</legend>
+			<p>Vilka är dina planerade arbetstider för vårterminen?</p>
+			<blockquote>
+				<strong>OBS!</strong><br>
+				<ul>
+					<li>Max 5 timmar arbete i sträck utan rast/lunch på minst 30 min.</li>
+					<li>Om rektor inte gett annan instruktion kan arbetstiden börja tidigast 07:30 och sluta senast 17:00.</li>
+					<li>Lunch måste läggas in med minst 30 minuter. Den tiden räknas ej som arbetstid.</li>
+				</ul>
+			</blockquote>
+
+			<div class="flex-row">
+				<button class="copy" type="button" onclick="copyFromTermToOtherTerm('HT', 'VT')">Kopiera tider från HT</button>
+			</div>
+
+			<ul class="week">
+				<li>
+					<h2>Måndag</h2>
+
+					<label for="VT-mon-day-start">Starttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="VT-mon-day-start" id="VT-mon-day-start"
+						placeholder="t.ex. 07:30" autocomplete="off" pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])"
+						oninput="onTimeInput('VT-mon')">
+
+					<label for="VT-mon-day-end">Sluttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="VT-mon-day-end" id="VT-mon-day-end"
+						placeholder="t.ex. 16:00" autocomplete="off" pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])"
+						oninput="onTimeInput('VT-mon')">
+
+					<div class="divider"></div>
+
+					<label for="VT-mon-lunch-start">Lunch-starttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="VT-mon-lunch-start"
+						id="VT-mon-lunch-start" placeholder="t.ex. 11:30" autocomplete="off"
+						pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])" oninput="onTimeInput('VT-mon')">
+
+					<label for="VT-mon-lunch-end">Lunch-sluttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="VT-mon-lunch-end" id="VT-mon-lunch-end"
+						placeholder="t.ex. 12:30" autocomplete="off" pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])"
+						oninput="onTimeInput('VT-mon')">
+
+					<div class="divider"></div>
+
+					<label for="VT-mon-minutes">Arbetstid</label>
+					<output name="VT-mon-minutes" id="VT-mon-minutes">-</output>
+				</li>
+				<li>
+					<h2>Tisdag</h2>
+
+					<label for="VT-tue-day-start">Starttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="VT-tue-day-start" id="VT-tue-day-start"
+						placeholder="t.ex. 07:30" autocomplete="off" pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])"
+						oninput="onTimeInput('VT-tue')">
+
+					<label for="VT-tue-day-end">Sluttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="VT-tue-day-end" id="VT-tue-day-end"
+						placeholder="t.ex. 16:00" autocomplete="off" pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])"
+						oninput="onTimeInput('VT-tue')">
+
+					<div class="divider"></div>
+
+					<label for="VT-tue-lunch-start">Lunch-starttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="VT-tue-lunch-start"
+						id="VT-tue-lunch-start" placeholder="t.ex. 11:30" autocomplete="off"
+						pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])" oninput="onTimeInput('VT-tue')">
+
+					<label for="VT-tue-lunch-end">Lunch-sluttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="VT-tue-lunch-end" id="VT-tue-lunch-end"
+						placeholder="t.ex. 12:30" autocomplete="off" pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])"
+						oninput="onTimeInput('VT-tue')">
+
+					<div class="divider"></div>
+
+					<label for="VT-tue-minutes">Arbetstid</label>
+					<output name="VT-tue-minutes" id="VT-tue-minutes">-</output>
+				</li>
+				<li>
+					<h2>Onsdag</h2>
+
+					<label for="VT-wed-day-start">Starttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="VT-wed-day-start" id="VT-wed-day-start"
+						placeholder="t.ex. 07:30" autocomplete="off" pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])"
+						oninput="onTimeInput('VT-wed')">
+
+					<label for="VT-wed-day-end">Sluttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="VT-wed-day-end" id="VT-wed-day-end"
+						placeholder="t.ex. 16:00" autocomplete="off" pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])"
+						oninput="onTimeInput('VT-wed')">
+
+					<div class="divider"></div>
+
+					<label for="VT-wed-lunch-start">Lunch-starttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="VT-wed-lunch-start"
+						id="VT-wed-lunch-start" placeholder="t.ex. 11:30" autocomplete="off"
+						pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])" oninput="onTimeInput('VT-wed')">
+
+					<label for="VT-wed-lunch-end">Lunch-sluttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="VT-wed-lunch-end" id="VT-wed-lunch-end"
+						placeholder="t.ex. 12:30" autocomplete="off" pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])"
+						oninput="onTimeInput('VT-wed')">
+
+					<div class="divider"></div>
+
+					<label for="VT-wed-minutes">Arbetstid</label>
+					<output name="VT-wed-minutes" id="VT-wed-minutes">-</output>
+				</li>
+				<li>
+					<h2>Torsdag</h2>
+
+					<label for="VT-thu-day-start">Starttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="VT-thu-day-start" id="VT-thu-day-start"
+						placeholder="t.ex. 07:30" autocomplete="off" pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])"
+						oninput="onTimeInput('VT-thu')">
+
+					<label for="VT-thu-day-end">Sluttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="VT-thu-day-end" id="VT-thu-day-end"
+						placeholder="t.ex. 16:00" autocomplete="off" pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])"
+						oninput="onTimeInput('VT-thu')">
+
+					<div class="divider"></div>
+
+					<label for="VT-thu-lunch-start">Lunch-starttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="VT-thu-lunch-start"
+						id="VT-thu-lunch-start" placeholder="t.ex. 11:30" autocomplete="off"
+						pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])" oninput="onTimeInput('VT-thu')">
+
+					<label for="VT-thu-lunch-end">Lunch-sluttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="VT-thu-lunch-end" id="VT-thu-lunch-end"
+						placeholder="t.ex. 12:30" autocomplete="off" pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])"
+						oninput="onTimeInput('VT-thu')">
+
+					<div class="divider"></div>
+
+					<label for="VT-thu-minutes">Arbetstid</label>
+					<output name="VT-thu-minutes" id="VT-thu-minutes">-</output>
+				</li>
+				<li>
+					<h2>Fredag</h2>
+
+					<label for="VT-fri-day-start">Starttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="VT-fri-day-start" id="VT-fri-day-start"
+						placeholder="t.ex. 07:30" autocomplete="off" pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])"
+						oninput="onTimeInput('VT-fri')">
+
+					<label for="VT-fri-day-end">Sluttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="VT-fri-day-end" id="VT-fri-day-end"
+						placeholder="t.ex. 16:00" autocomplete="off" pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])"
+						oninput="onTimeInput('VT-fri')">
+
+					<div class="divider"></div>
+
+					<label for="VT-fri-lunch-start">Lunch-starttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="VT-fri-lunch-start"
+						id="VT-fri-lunch-start" placeholder="t.ex. 11:30" autocomplete="off"
+						pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])" oninput="onTimeInput('VT-fri')">
+
+					<label for="VT-fri-lunch-end">Lunch-sluttid</label>
+					<input onkeypress="return noEnter()" class="time" type="text" name="VT-fri-lunch-end" id="VT-fri-lunch-end"
+						placeholder="t.ex. 12:30" autocomplete="off" pattern="([0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9])"
+						oninput="onTimeInput('VT-fri')">
+
+					<div class="divider"></div>
+
+					<label for="VT-fri-minutes">Arbetstid</label>
+					<output name="VT-fri-minutes" id="VT-fri-minutes">-</output>
+				</li>
+			</ul>
+
+			<div class="flex-row">
+				<button class="copy" type="button" onclick="copyFromMondayToAll('VT')">Kopiera tider från Måndag</button>
+
+				<div class="flex-grow"></div>
+
+				<div class="flex-column week-totals">
+					<label for="VT-weektime">Totalt</label>
+					<output name="VT-weektime" id="VT-weektime">-</output>
+				</div>
+			</div>
+		</fieldset>
+
+		<!-- Circles which indicates the steps of the form: -->
+		<div id="step-container">
+			<span class="step"></span>
+			<span class="step"></span>
+			<span class="step"></span>
+			<span class="step"></span>
+		</div>
+		<nav>
+			<!-- Form navigation buttons: -->
+			<button type="button" id="prevBtn" onclick="nextPrev(-1)">Tillbaka</button>
+			<!-- The 'next' button has to be of type submit so that the error popups show up when this button is clicked.-->
+			<button type="submit" id="nextBtn" onclick="nextPrev(1)">Nästa</button>
+		</nav>
+	</form>
+
+	<footer>
+		<p>Martin Jonsson 2020</p>
+	</footer>
+
+	<div id="download-scrim">
+		<div id="download-message">
+			<div id="download-textbox">
+				Dina arbetstider laddas nu ned här.<br>
+				Mejla denna fil till schemaläggaren på skolan.
+			</div>
+			<img id="download-arrow" src="arrow_downward-24px.svg" />
+		</div>
+	</div>
+
+	<!-- Main business-logic -->
+	<script async src="index.js"></script>
+
+</body>
+
+</html>
