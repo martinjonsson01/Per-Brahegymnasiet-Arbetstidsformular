@@ -4,7 +4,7 @@
 
 Innan det går att göra något med projektet måste alla moduler installeras lokalt, och detta behöver endast göras en gång. För att installera alla moduler behöver först Node.js vara installerat på datorn. För att göra detta, gå till https://nodejs.org/en/ och ladda ned och installera den senaste LTS-versionen.
 
-När Node.js är installerat bör även NPM ha installerats, och ska man köra följande kommando i kommandotolken från projektmappens rot:
+När Node.js är installerat bör även NPM ha installerats, och då kan man köra följande kommando i kommandotolken från projektmappens rot:
 
 ```
 npm install
@@ -20,7 +20,7 @@ npm run build
 
 Detta skript kommer att konvertera källkoden som ligger i `src/` till IE-kompatibel kod som läggs i `public/`.
 
-> OBS: Gör inga ändringar till .js-filerna som ligger i `public/`-mappen, eftersom de kommer att överskridas av "build"-skriptet när det körs. Om du vill göra ändringar till koden bör du redigera filerna som ligger i `src/`-mappen.
+> :warning: **OBS**: Gör inga ändringar till .js-filerna som ligger i `public/`-mappen, eftersom de kommer att överskridas av "build"-skriptet när det körs. Om du vill göra ändringar till koden bör du redigera filerna som ligger i `src/`-mappen.
 
 ## Att distribuera sidan
 
@@ -31,8 +31,6 @@ För nuvarande ligger sidan uppe på Googles Firebase-tjänst. För att lägga u
 ```
 npm install -g firebase-tools
 ```
-
-Om man inte har NPM installerat går det även att ladda ned manuellt från https://firebase.google.com/docs/cli#windows-standalone-binary.
 
 Efter Firebase-CLI är installerat behöver man logga in med ett Google-konto som har tillgång till Firebase-projektet. För att göra detta skriver man följande i en kommandotolk:
 
